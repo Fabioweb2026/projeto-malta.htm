@@ -179,25 +179,54 @@ body.high-contrast .main-header h1 {
 /* ==========================================
 
 
-/* 1. Ajuste para o Bloco da Blue Grotto (maltathebluegrotto.jpg) e bluelagoon2.png */
-/* Container de imagem flexível e sem altura fixa travada */
+/* 1. Ajuste para o Bloco da Blue Grotto (maltathebluegrotto.jpg) e bluelagoon3.png e bluelagoon2.png */
+
+/* ==========================================
+   CONSERTO COMPLETO DE IMAGENS E LEGENDAS
+   ========================================== */
+
+/* Remove a restrição que corta o céu e o mar */
 .solo-image-wrapper, .lagoon-image-wrapper {
     width: 100%;
-    height: auto;
-    max-height: 450px;
+    height: auto; /* Deixa a altura livre para crescer */
+    max-height: 500px; /* Evita que a foto fique gigante em monitores grandes */
     overflow: hidden;
+    background-color: #f4ece1; /* Fundo bege caso a foto mude de proporção */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Força a exibição da imagem inteira sem nenhum corte artificial */
 .solo-image-wrapper img, .lagoon-image-wrapper img {
     width: 100%;
     height: auto;
+    max-height: 500px;
     display: block;
-    object-fit: cover;
+    object-fit: contain !important; /* IMPORTANTE: Garante a imagem 100% visível */
 }
 
-/* Espaçamento extra nas legendas para nunca cortar palavras embaixo */
+/* Ajuste fino para a galeria de cards menores */
+.gallery-item {
+    background: #fcf8f2;
+    border: 1px solid #e6dac8;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover; /* Mantém a proporção do preenchimento nos blocos pequenos */
+}
+
+/* Espaçamento extra e isolamento para a legenda nunca ser devorada */
 .item-caption, .image-caption {
-    padding: 18px 15px;
+    padding: 20px 15px !important; /* Cria um respiro interno confortável */
     font-size: 0.95rem;
     color: #706356;
     text-align: center;
@@ -205,6 +234,8 @@ body.high-contrast .main-header h1 {
     border-top: 1px solid #e6dac8;
     word-wrap: break-word;
     display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .

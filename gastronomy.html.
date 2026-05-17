@@ -3,194 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gastronomy & Architecture</title>
+    <title>Gastronomy & Architecture - Malta</title>
     <style>
-        body { 
-            background-color: #F5F2EB; 
-            font-family: 'Segoe UI', sans-serif; 
-            color: #3E3B35; 
-            padding: 40px 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-        .container { 
-            max-width: 850px; 
-            background: white; 
-            padding: 40px; 
-            border-radius: 16px; 
-            border: 1px solid #E6DFD3; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
-        }
-        h1, h2, h3 { color: #8C6D46; }
-        h1 { border-bottom: 2px solid #E6DFD3; padding-bottom: 10px; margin-top: 0; }
-        p { line-height: 1.7; font-size: 1.05rem; color: #4A463F; }
-        
-        .section-block {
-            margin-top: 30px;
-            border-top: 2px dashed #E6DFD3;
-            padding-top: 30px;
+        /* ==========================================
+           Configurações Gerais (Mantendo o Padrão)
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Georgia, serif;
         }
 
-        /* 🌟 GIORGIO'S EXCLUSIVE BOX */
-        .giorgios-box {
-            background-color: #FDFBF7;
-            border: 2px solid #8C6D46;
-            border-radius: 14px;
-            padding: 25px;
-            margin-top: 20px;
-            box-shadow: 0 6px 20px rgba(140, 109, 70, 0.08);
+        body {
+            background-color: #fcf8f2; /* Creme suave */
+            color: #4a3f35; /* Marrom escuro */
+            line-height: 1.6;
         }
-        
-        .giorgios-brand-row {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+
+        /* Botão Voltar Fixo e Discreto */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #f4ece1;
+            border: 1px solid #e6dac8;
+            color: #4a3f35;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 10;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #ebe0cf;
+            transform: translateX(-3px);
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            padding: 100px 20px 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            color: #8c7864;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .header-section p {
+            font-size: 1.05rem;
+            color: #706356;
+            font-style: italic;
+        }
+
+        /* Container Principal */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ==========================================
+           Blocos de Conteúdo (Layout de Destaque)
+           ========================================== */
+        .showcase-block {
+            background-color: #f4ece1; /* Bege calcário */
+            border: 1px solid #e6dac8;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05);
+        }
+
+        .showcase-block h2 {
+            font-size: 1.6rem;
+            color: #735e49;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e6dac8;
+            padding-bottom: 8px;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: #dfcfbe;
+            color: #5c4f43;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .block-text {
+            font-size: 1rem;
+            color: #4a3f35;
             margin-bottom: 25px;
         }
-        .giorgios-logo-img {
-            width: 45%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #E6DFD3;
-        }
-        .giorgios-info-text {
-            width: 55%;
-        }
-        .giorgios-info-text h2 { margin: 0 0 10px 0; color: #8C6D46; font-size: 1.8rem; }
-        .address-info { 
-            font-size: 0.95rem; 
-            color: #706B62; 
-            background: #F5F2EB;
-            padding: 12px;
-            border-radius: 6px;
-            line-height: 1.5;
-        }
 
-        /* 2-Card Grid for Giorgio's */
-        .giorgios-gallery-grid {
+        /* Galeria de Imagens Internas */
+        .image-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
-        .small-card {
-            background-color: #FFFFFF;
-            border: 1px solid #E6DFD3;
-            border-radius: 12px;
+
+        .image-card {
+            background: #fcf8f2;
+            border: 1px solid #e6dac8;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-        }
-        .small-card img { 
-            width: 100%; 
-            height: 220px; 
-            object-fit: cover; 
-        }
-        .small-card-body {
-            padding: 15px;
-            text-align: center;
-            flex-grow: 1;
-        }
-        .small-card-body h4 {
-            margin: 0 0 8px 0;
-            color: #8C6D46;
-            font-size: 1.15rem;
-        }
-        .small-card-body p { 
-            font-size: 0.9rem; 
-            margin: 0; 
-            color: #666; 
-            line-height: 1.4;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
 
-        /* ARCHITECTURE CARD */
-        .architecture-center {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        .cathedral-card {
-            max-width: 550px;
+        .image-card img {
             width: 100%;
-        }
-        .cathedral-card img {
-            height: 320px;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .back-btn { display: inline-block; margin-top: 45px; padding: 12px 24px; background-color: #8C6D46; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        .back-btn:hover { background-color: #705431; }
+        .image-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-caption {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+            color: #706356;
+            text-align: center;
+            background-color: #f4ece1;
+            border-top: 1px solid #e6dac8;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Gastronomy & Cafe Culture</h1>
-        <p>Maltese culture is deeply integrated into its unique culinary style and magnificent buildings. Baroque features meet massive limestone ramparts engineered centuries ago by the legendary Knights of St. John.</p>
-        
-        <h3>Traditional Mediterranean Flavors</h3>
-        <p>The local food scene presents a delicious fusion of Sicilian and Arabic influences. You must sample <strong>Pastizzi</strong>, flaky pastries filled with warm ricotta cheese or mushy peas. Other local culinary specialties include slow-cooked rabbit stew (Fenkata), savory Ftira bread, and fresh olive oil appetizers.</p>
-        
-        <!-- 🌟 SEÇÃO GIORGIO'S CAFETERIA (REORGANIZADA E LIMPA) -->
-        <div class="section-block">
-            <div class="giorgios-box">
-                
-                <!-- Logo + Endereço Lado a Lado -->
-                <div class="giorgios-brand-row">
-                    <img src="giorgios.png" alt="Giorgio's Cafe Boutique Menu" class="giorgios-logo-img">
-                    <div class="giorgios-info-text">
-                        <h2>Giorgio's Cafeteria</h2>
-                        <p>An iconic staple in Malta's upscale coffee and food scene. Established as an essential social meeting ground along the golden shoreline walkway.</p>
-                        <div class="address-info">
-                            📍 <strong>Address:</strong> 19, Sliema Promenade, Sliema, Malta <br>
-                            📌 <strong>Reference:</strong> Located right on the bustling waterfront, looking out across the Mediterranean Strand.
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Cards Internos do Giorgio's -->
-                <div class="giorgios-gallery-grid">
-                    
-                    <!-- Card Esquerdo: Área Externa Ombrelone -->
-                    <div class="small-card">
-                        <img src="giorgios-outdoor.webp" alt="Giorgio's Terrace Lounge">
-                        <div class="small-card-body">
-                            <h4>Outdoor Terrace Lounge</h4>
-                            <p>Enjoy premium coffee under the distinctive dark boutique umbrellas on the scenic promenade deck.</p>
-                        </div>
-                    </div>
+    <!-- Link de retorno para a Home principal -->
+    <a href="index.html" class="back-btn">← Back to Home</a>
 
-                    <!-- Card Direito: O prato servido -->
-                    <div class="small-card">
-                        <img src="giorgios-food.webp" alt="Giorgio's Culinary Serving">
-                        <div class="small-card-body">
-                            <h4>Gourmet Menu Selections</h4>
-                            <p>Artisanal dishes, savory appetizer platters, and fresh local pastries served daily with top-tier presentation.</p>
-                        </div>
-                    </div>
+    <header class="header-section">
+        <h1>Flavors & Stones</h1>
+        <p>A journey through Maltese culinary traditions and majestic coastal architecture.</p>
+    </header>
 
-                </div>
+    <main class="main-container">
 
-            </div>
-        </div>
-
-        <!-- 🏛️ SEÇÃO DA CATEDRAL HISTÓRICA -->
-        <div class="section-block">
-            <h3>Maltese Architecture</h3>
-            <p>Malta's structures are highly detailed masterpieces built out of regional golden globigerina limestone blocks.</p>
+        <!-- Seção 1: Giorgio's Cafeteria -->
+        <section class="showcase-block">
+            <h2>Giorgio's Cafeteria</h2>
+            <div class="location-badge">📍 17, Tigné Seafront, Sliema, Malta</div>
             
-            <div class="architecture-center">
-                <div class="small-card cathedral-card">
-                    <img src="malta06.jpg" alt="St. John's Co-Cathedral Exterior">
-                    <div class="small-card-body">
-                        <h4>St. John's Co-Cathedral</h4>
-                        <p>A spectacular historic Roman Catholic co-cathedral located right in the heart of Valletta, built by the Knights of St. John between 1572 and 1577 as an iconic gem of high Baroque design.</p>
-                    </div>
+            <p class="block-text">
+                Established as a beloved landmark on the Sliema waterfront, Giorgio's Cafeteria offers the perfect fusion of Mediterranean vibes and delicious treats. It is the ultimate spot to enjoy a relaxing espresso, authentic local pastries, and savory dishes while taking in stunning open views of the Valletta harbor.
+            </p>
+
+            <!-- Grid de Fotos da Cafeteria -->
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="giorgios-outdoor.webp" alt="Giorgio's Cafeteria Outdoor Seating">
+                    <div class="image-caption">The vibrant outdoor terrace facing the Mediterranean Sea</div>
+                </div>
+                <div class="image-card">
+                    <img src="giorgios-food.webp" alt="Traditional Maltese food at Giorgio's">
+                    <div class="image-caption">Authentic local flavors and freshly baked desserts</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <a href="index.html" class="back-btn">⬅ Back to Home</a>
-    </div>
+        <!-- Seção 2: Mediterranean Architecture -->
+        <section class="showcase-block">
+            <h2>Iconic Coastal Architecture</h2>
+            <div class="location-badge">🏛️ Sliema District</div>
+            
+            <p class="block-text">
+                Malta's landscape is famous for its glowing globigerina limestone buildings. Right around the corner from the lively cafes, historic monuments stand tall against the blue skies, representing centuries of cultural heritage carved in golden stone.
+            </p>
+
+            <!-- Foto de Arquitetura com o nome sugerido da Igreja -->
+            <div class="image-grid" style="grid-template-columns: 1fr;">
+                <div class="image-card" style="max-width: 500px; margin: 0 auto; width: 100%;">
+                    <img src="malta06.jpg" alt="Our Lady of Mount Carmel Church">
+                    <div class="image-caption"><strong>Our Lady of Mount Carmel Church</strong> – A majestic limestone masterpiece by the bay</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
 </body>
 </html>

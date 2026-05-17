@@ -178,55 +178,49 @@ body.high-contrast .main-header h1 {
    ========================================== */
 /* ==========================================
 
-
-/* 1. Ajuste para o Bloco da Blue Grotto (maltathebluegrotto.jpg) e bluelagoon3.png e bluelagoon2.png */
-
 /* ==========================================
-   CONSERTO COMPLETO DE IMAGENS E LEGENDAS
+   CONSERTO DEFINITIVO DE IMAGENS E LEGENDAS
    ========================================== */
 
-/* Remove a restrição que corta o céu e o mar */
+/* 1. Ajuste para os Blocos Maiores (bluelagoon2.png e maltathebluegrotto.jpg) */
 .solo-image-wrapper, .lagoon-image-wrapper {
     width: 100%;
-    height: auto; /* Deixa a altura livre para crescer */
-    max-height: 500px; /* Evita que a foto fique gigante em monitores grandes */
-    overflow: hidden;
-    background-color: #f4ece1; /* Fundo bege caso a foto mude de proporção */
+    height: auto !important; /* Libera a altura total para a imagem expandir */
+    background-color: #f4ece1; /* Fundo bege uniforme */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Força a exibição da imagem inteira sem nenhum corte artificial */
+/* Força o navegador a mostrar 100% da imagem original sem cortar nada */
 .solo-image-wrapper img, .lagoon-image-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
+    width: 100% !important;
+    height: auto !important; 
+    max-height: 550px; /* Evita que o céu fique excessivamente esticado em telas grandes */
     display: block;
-    object-fit: contain !important; /* IMPORTANTE: Garante a imagem 100% visível */
+    object-fit: contain !important; /* Garante que a foto inteira fique visível */
 }
 
-/* Ajuste fino para a galeria de cards menores */
+/* 2. Ajuste Fino para a Galeria Menor (bluelagoon3.png e bluelagoon4.jpg) */
 .gallery-item {
     background: #fcf8f2;
     border: 1px solid #e6dac8;
     border-radius: 8px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: auto !important;
 }
 
 .gallery-item img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     max-height: 250px;
-    object-fit: cover; /* Mantém a proporção do preenchimento nos blocos pequenos */
+    object-fit: cover !important; /* Preenche o mini card proporcionalmente */
 }
 
-/* Espaçamento extra e isolamento para a legenda nunca ser devorada */
+/* 3. Espaçamento Isolado para as Legendas */
 .item-caption, .image-caption {
-    padding: 20px 15px !important; /* Cria um respiro interno confortável */
+    padding: 22px 18px !important; /* Amplo espaço interno para não prender o texto */
     font-size: 0.95rem;
     color: #706356;
     text-align: center;
@@ -237,5 +231,7 @@ body.high-contrast .main-header h1 {
     width: 100%;
     box-sizing: border-box;
 }
+
+
 
 .

@@ -1,6 +1,6 @@
-/* ==========================================
-   Configurações Gerais e Cores de Malta
-   ========================================== */
+/* ==========================================================================
+   1. RESET GLOBAL E CONFIGURAÇÕES DE NAVEGAÇÃO
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -11,17 +11,64 @@
 body {
     background-color: #fcf8f2; /* Creme suave */
     color: #4a3f35; /* Marrom escuro */
+    line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     min-height: 100vh;
 }
 
-/* Cabeçalho Principal */
-.main-header {
-    text-align: center;
-    padding: 80px 20px 20px 20px;
+/* Botão Voltar (Páginas Internas) */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #f4ece1;
+    border: 1px solid #e6dac8;
+    color: #4a3f35;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 9999;
+    transition: all 0.2s ease;
 }
 
-.main-header h1 {
+.back-btn:hover {
+    background-color: #ebe0cf;
+    transform: translateX(-3px);
+}
+
+/* Botão de Alternância de Contraste */
+.contrast-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f4ece1;
+    border: 1px solid #e6dac8;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+}
+
+.contrast-btn:hover {
+    background-color: #e6dac8;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA DE CABEÇALHOS E CONTAINERS
+   ========================================================================== */
+.main-header, .header-section {
+    text-align: center;
+    padding: 100px 20px 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-header h1, .header-section h1 {
     font-size: 2.8rem;
     color: #8c7864; /* Tom de pedra calcária escura */
     font-weight: 400;
@@ -29,16 +76,13 @@ body {
     margin-bottom: 10px;
 }
 
-.main-header .subtitle {
+.main-header .subtitle, .header-section p {
     font-size: 1rem;
     color: #a3907c;
     font-style: italic;
 }
 
-/* ==========================================
-   Grid de Cards de Alto Impacto
-   ========================================== */
-.container {
+.container, .main-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 30px 20px;
@@ -50,9 +94,9 @@ body {
     gap: 30px;
 }
 
-/* ==========================================
-   Estilo do Card com Imagem Total
-   ========================================== */
+/* ==========================================================================
+   3. PADRONIZAÇÃO DOS CARDS (PÁGINA PRINCIPAL)
+   ========================================================================== */
 .card-discreto {
     background-color: #f4ece1; /* Bege calcário */
     border: 1px solid #e6dac8;
@@ -61,18 +105,18 @@ body {
     color: #4a3f35;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Corta a imagem nas bordas arredondadas do card */
+    overflow: hidden;
+    height: 100%;
     box-shadow: 0 4px 15px rgba(140, 120, 100, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card-discreto:hover {
     background-color: #ebe0cf;
-    transform: translateY(-6px) !important;
+    transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(140, 120, 100, 0.18);
 }
 
-/* Container da Imagem ocupando 100% de largura */
 .card-image-wrapper {
     width: 100%;
     height: 200px;
@@ -82,47 +126,21 @@ body {
 .card-thumb {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Preenche o espaço proporcionalmente sem distorcer */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* Efeito de zoom sutil na foto */
 .card-discreto:hover .card-thumb {
     transform: scale(1.05);
 }
 
-/* Conteúdo de Texto abaixo da Imagem */
-/* ==========================================
-   Estilo Corrigido do Card (Sem corte de texto)
-   ========================================== */
-.card-discreto {
-    background-color: #f4ece1;
-    border: 1px solid #e6dac8;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #4a3f35;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    height: 100%; /* Garante que todos os cards do grid tenham a mesma altura */
-    box-shadow: 0 4px 15px rgba(140, 120, 100, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.card-discreto:hover {
-    background-color: #ebe0cf;
-    transform: translateY(-6px) !important;
-    box-shadow: 0 12px 24px rgba(140, 120, 100, 0.18);
-}
-
-/* Área de texto flexível que se expande se o texto for longo */
 .card-content {
     padding: 25px 20px;
     text-align: left;
-    flex-grow: 1; /* Empurra o card para baixo se houver muito texto */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinha o texto do topo para o final */
+    justify-content: flex-start;
 }
 
 .card-content h2 {
@@ -130,264 +148,105 @@ body {
     color: #735e49;
     margin-bottom: 12px;
     font-weight: 600;
-    line-height: 1.2; /* Evita que títulos compridos comam palavras */
+    line-height: 1.2;
 }
 
 .card-content p {
     font-size: 0.95rem;
     color: #706356;
-    line-height: 1.6; /* Dá espaço respirável para os parágrafos */
-    word-wrap: break-word; /* Força a quebra de palavras longas se necessário */
+    line-height: 1.6;
+    word-wrap: break-word;
 }
 
-
-/* ==========================================
-   Botão de Acessibilidade Fixado
-   ========================================== */
-.contrast-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #f4ece1;
+/* ==========================================================================
+   4. ESTILO DE CARDS DE INFORMAÇÃO COM IMAGENS EM CÍRCULO (BOLINHAS)
+   ========================================================================== */
+.info-card {
+    background-color: #f4ece1;
     border: 1px solid #e6dac8;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.1rem;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
+.lagoon-image-wrapper, .solo-image-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    background-color: transparent;
+}
+
+/* Moldura circular para as fotos internas */
+.lagoon-image-wrapper img, .solo-image-wrapper img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #8c7864;
+    box-shadow: 0 4px 10px rgba(140, 120, 100, 0.15);
+    display: block;
+}
+
+.card-padding {
+    padding: 20px 30px 30px 30px;
+}
+
+.info-card h2 {
+    font-size: 1.6rem;
+    color: #735e49;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.location-tag {
+    display: block;
+    width: max-content;
+    margin: 5px auto 15px auto;
+    background-color: #dfcfbe;
+    color: #5c4f43;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   5. ACESSIBILIDADE - MODO ALTO CONTRASTE ESCURO
+   ========================================================================== */
 body.high-contrast {
     background-color: #1a1510;
     color: #fff6eb;
 }
 
-body.high-contrast .card-discreto {
+body.high-contrast .card-discreto,
+body.high-contrast .info-card,
+body.high-contrast .back-btn,
+body.high-contrast .contrast-btn {
     background-color: #2d251e;
     border-color: #4a3f35;
     color: #fff6eb;
 }
 
 body.high-contrast .card-content h2,
-body.high-contrast .main-header h1 {
-    color: #dfcfbe;
-}
-/* ==========================================
-   Correção para as Páginas Internas (Fim do texto cortado)
-   ========================================== */
-/* ==========================================
-
-
-<!-- ==========================================
-   CONSERTO DEFINITIVO DE IMAGENS E LEGENDAS
-========================================== -->
-<style>
-    /* ==========================================
-       RESET EXCLUSIVO E TOTAL CONTRA CONFLITOS
-       ========================================== */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Georgia, serif;
-    }
-
-    body {
-        background-color: #fcf8f2;
-        color: #4a3f35;
-        line-height: 1.6;
-    }
-
-    /* Botão Voltar */
-    .back-btn {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background-color: #f4ece1;
-        border: 1px solid #e6dac8;
-        color: #4a3f35;
-        text-decoration: none;
-        padding: 10px 18px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        z-index: 10;
-        transition: all 0.2s ease;
-    }
-
-    .back-btn:hover {
-        background-color: #ebe0cf;
-        transform: translateX(-3px);
-    }
-
-    .header-section {
-        text-align: center;
-        padding: 100px 20px 40px 20px;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .header-section h1 {
-        font-size: 2.5rem;
-        color: #8c7864;
-        font-weight: 400;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
-
-    .header-section p {
-        font-size: 1.05rem;
-        color: #a3907c;
-        font-style: italic;
-    }
-
-    .main-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .info-card {
-        background-color: #f4ece1;
-        border: 1px solid #e6dac8;
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 50px;
-        box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05);
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* ==========================================
-       ATIVANDO AS BOLINHAS COMPACTAS E HARMONIOSAS
-       ========================================== */
-    
-    /* Centraliza o container da bolinha no topo do conteúdo */
-    .lagoon-image-wrapper, .solo-image-wrapper {
-        width: 100% !important;
-        height: auto !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding-top: 30px !important; /* Dá um espaço elegante no topo do card */
-        background-color: transparent !important;
-    }
-
-    /* Força as imagens a virarem círculos perfeitos e menores */
-    .lagoon-image-wrapper img, .solo-image-wrapper img {
-        width: 110px !important;  /* Tamanho menor e muito sutil */
-        height: 110px !important; /* Altura idêntica para manter o círculo */
-        border-radius: 50% !important; /* MÁGICA: Transforma em bolinha perfeita */
-        object-fit: cover !important;  /* Centraliza a paisagem dentro do círculo */
-        border: 3px solid #8c7864 !important; /* Borda fina elegante na cor de Malta */
-        box-shadow: 0 4px 10px rgba(140, 120, 100, 0.15) !important;
-        display: block !important;
-    }
-
-    .card-padding {
-        padding: 20px 30px 30px 30px; /* Ajustado o topo para o texto respirar */
-    }
-
-    .info-card h2 {
-        font-size: 1.6rem;
-        color: #735e49;
-        margin-bottom: 5px;
-        text-align: center; /* Centralizado combina mais com o estilo de bolinha */
-    }
-
-    .location-tag {
-        display: block;
-        width: max-content;
-        margin: 5px auto 15px auto; /* Centraliza a tag abaixo do título */
-        background-color: #dfcfbe;
-        color: #5c4f43;
-        padding: 3px 10px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: bold;
-    }
-
-    .card-text {
-        font-size: 0.95rem;
-        color: #4a3f35;
-        text-align: left;
-    }
-
-    /* ==========================================
-       GALERIA MENOR INFERIOR (BOLINHAS TAMBÉM)
-       ========================================== */
-    .image-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 20px;
-        padding: 0 30px 30px 30px;
-    }
-
-    .gallery-item {
-        background: #fcf8f2;
-        border: 1px solid #e6dac8;
-        border-radius: 8px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza a bolinha interna */
-        padding-top: 20px;
-    }
-
-    /* Transforma as imagens menores da galeria em bolinhas também */
-    .gallery-item img {
-        width: 80px !important;
-        height: 80px !important;
-        border-radius: 50% !important; /* Bolinha perfeita */
-        border: 2px solid #8c7864 !important;
-        object-fit: cover !important;
-        display: block !important;
-    }
-
-    .item-caption {
-        padding: 12px;
-        font-size: 0.85rem;
-        color: #706356;
-        text-align: center;
-        background-color: transparent;
-        word-wrap: break-word;
-    }
-</style>
-/* ==========================================
-   NOVA ESTRUTURA PARA AS MÍDIAS DOS CARDS 
-   ========================================== */
-.card-media {
-    width: 100% !important;
-    height: 200px !important; /* Mantém a altura dos cards alinhada */
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
+body.high-contrast .info-card h2,
+body.high-contrast .main-header h1,
+body.high-contrast .header-section h1 {
+    color: #ffff00; /* Destaque em Amarelo para leitura em telas escuras */
 }
 
-.card-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
-/* CONSERTO DO VÍDEO GIGANTE DO CELULAR */
-.video-wrapper { 
-    width: 100% !important; 
-    max-width: 440px !important; /* Encolhe o vídeo para um tamanho super elegante */
-    height: auto !important; 
-    margin: 20px auto 30px auto !important; /* Centraliza o vídeo no meio do card */
-    border-radius: 8px !important; 
-    overflow: hidden !important; 
-    border: 1px solid #e6dac8 !important; 
-    box-shadow: 0 4px 12px rgba(140, 120, 100, 0.1) !important; 
+body.high-contrast .card-content p,
+body.high-contrast .main-header .subtitle,
+body.high-contrast .header-section p {
+    color: #fff6eb;
 }
 
-.video-wrapper video { 
-    width: 100% !important; 
-    height: auto !important; 
-    display: block !important; 
-    object-fit: contain !important; /* Respeita a proporção original do celular */
+body.high-contrast .location-tag {
+    background-color: #4a3f35;
+    color: #ffff00;
 }
-
-

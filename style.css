@@ -343,17 +343,24 @@ body.high-contrast .location-tag {
 }
 /* ... regras anteriores do seu CSS ... */
 
-.footer-info {
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
+/* Força as informações de endereço e contato a ficarem nítidas */
 .footer-info p {
-    font-size: 0.85rem !important;
-    color: #362d24 !important; /* Mesma cor escura e legível para o rodapé */
+    font-size: 0.95rem !important; /* Aumentado para melhor leitura */
+    color: #2b1f14 !important;    /* Marrom escuro de alto contraste */
+    margin-bottom: 8px;
 }
 
+/* Destaca o texto de direitos autorais (Copyright) */
 .footer-copyright {
     border-top: 1px solid #dfcfbe;
     padding-top: 15px;
+    margin-top: 15px;
 }
+
+.footer-copyright p {
+    font-size: 0.95rem !important; /* Aumentado para ficar do mesmo tamanho do endereço */
+    color: #1a130c !important;    /* Cor quase preta para legibilidade máxima */
+    font-weight: 600 !important;   /* Aplica um leve negrito para destacar a assinatura */
+}
+
 

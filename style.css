@@ -354,4 +354,22 @@ body.high-contrast .main-header h1 {
         word-wrap: break-word;
     }
 </style>
+/* ==========================================
+   NOVA ESTRUTURA PARA AS MÍDIAS DOS CARDS 
+   ========================================== */
+.card-media {
+    width: 100% !important;
+    height: 200px !important; /* Mantém a altura dos cards alinhada */
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+.card-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
 

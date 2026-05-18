@@ -3,63 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Lagoon - Comino Island</title>
+    <title>Blue Lagoon & Blue Grotto - Malta</title>
     <style>
-        /* === ESTILOS BLINDADOS ANTI-CONFLITO === */
-        * { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
-        body { background-color: #fcf8f2 !important; color: #4a3f35 !important; font-family: 'Segoe UI', Georgia, serif !important; line-height: 1.6 !important; }
-        .back-btn { position: fixed !important; top: 20px !important; left: 20px !important; background: #f4ece1 !important; border: 1px solid #e6dac8 !important; color: #4a3f35 !important; text-decoration: none !important; padding: 10px 18px !important; border-radius: 20px !important; font-size: 0.9rem !important; z-index: 9999 !important; }
-        .back-btn:hover { background-color: #ebe0cf !important; transform: translateX(-3px) !important; }
-        .header-section { text-align: center !important; padding: 100px 20px 30px 20px !important; }
-        .header-section h1 { color: #8c7864 !important; font-size: 2.5rem !important; font-weight: 400 !important; }
-        .main-container { max-width: 900px !important; margin: 0 auto !important; padding: 20px !important; }
-        
-        /* Estrutura Limpa do Card */
-        .info-card { background-color: #f4ece1 !important; border: 1px solid #e6dac8 !important; border-radius: 12px !important; padding: 35px 30px !important; margin-bottom: 30px !important; box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05) !important; text-align: center !important; }
-        .info-card h2 { color: #735e49 !important; font-size: 1.6rem !important; margin-bottom: 5px !important; }
-        .location-tag { background-color: #dfcfbe !important; color: #5c4f43 !important; padding: 4px 12px !important; border-radius: 4px !important; font-size: 0.8rem !important; font-weight: bold !important; display: inline-block !important; margin-bottom: 15px !important; }
-        .card-text { font-size: 0.95rem !important; color: #4a3f35 !important; text-align: left !important; margin-bottom: 25px !important; }
-        
-        /* OTIMIZAÇÃO DO VÍDEO DO CELULAR */
-        .video-wrapper { width: 100% !important; max-width: 600px !important; height: auto !important; margin: 20px auto !important; border-radius: 8px !important; overflow: hidden !important; border: 1px solid #e6dac8 !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; }
-        .video-wrapper video { width: 100% !important; height: auto !important; display: block !important; opacity: 0.95 !important; /* Suaviza o contraste e detalhes de fundo */ }
+        /* ==========================================
+           Configurações Gerais (Padrão Gastronomia)
+           ========================================== */
+        * {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+            font-family: 'Segoe UI', Georgia, serif !important;
+        }
 
-        /* GALERIA DE IMAGENS MENORES E SEM NENHUM CORTE */
-        .image-container-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 20px !important; margin-top: 30px !important; }
-        .img-box { background: #fcf8f2 !important; border: 1px solid #e6dac8 !important; border-radius: 8px !important; overflow: hidden !important; height: 180px !important; display: flex !important; justify-content: center !important; align-items: center !important; padding: 10px !important; }
-        .img-box img { max-width: 100% !important; max-height: 100% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 4px !important; display: block !important; }
+        body {
+            background-color: #fcf8f2 !important; /* Creme suave */
+            color: #4a3f35 !important; /* Marrom escuro */
+            line-height: 1.6 !important;
+        }
+
+        /* Botão Voltar Fixo e Discreto */
+        .back-btn {
+            position: fixed !important;
+            top: 20px !important;
+            left: 20px !important;
+            background-color: #f4ece1 !important;
+            border: 1px solid #e6dac8 !important;
+            color: #4a3f35 !important;
+            text-decoration: none !important;
+            padding: 10px 18px !important;
+            border-radius: 20px !important;
+            font-size: 0.9rem !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+            z-index: 9999 !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .back-btn:hover {
+            background-color: #ebe0cf !important;
+            transform: translateX(-3px) !important;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center !important;
+            padding: 100px 20px 40px 20px !important;
+            max-width: 800px !important;
+            margin: 0 auto !important;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem !important;
+            color: #8c7864 !important;
+            font-weight: 400 !important;
+            letter-spacing: 1px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .header-section p {
+            font-size: 1.05rem !important;
+            color: #706356 !important;
+            font-style: italic !important;
+        }
+
+        /* Container Principal */
+        .main-container {
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+            padding: 20px !important;
+        }
+
+        /* Blocos de Conteúdo Estilo Gastronomia */
+        .showcase-block {
+            background-color: #f4ece1 !important; /* Bege calcário */
+            border: 1px solid #e6dac8 !important;
+            border-radius: 12px !important;
+            padding: 30px !important;
+            margin-bottom: 40px !important;
+            box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05) !important;
+        }
+
+        .showcase-block h2 {
+            font-size: 1.6rem !important;
+            color: #735e49 !important;
+            margin-bottom: 10px !important;
+            border-bottom: 2px solid #e6dac8 !important;
+            padding-bottom: 8px !important;
+        }
+
+        .location-badge {
+            display: inline-block !important;
+            background-color: #dfcfbe !important;
+            color: #5c4f43 !important;
+            padding: 4px 12px !important;
+            border-radius: 4px !important;
+            font-size: 0.85rem !important;
+            font-weight: bold !important;
+            margin-bottom: 20px !important;
+        }
+
+        .block-text {
+            font-size: 1rem !important;
+            color: #4a3f35 !important;
+            margin-bottom: 25px !important;
+            text-align: left !important;
+        }
+
+        /* ==========================================
+           CONSERTO DO VÍDEO (NÃO FICA MAIS GIGANTE)
+           ========================================== */
+        .video-block-wrapper {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-bottom: 30px !important;
+        }
+
+        .video-card {
+            background: #fcf8f2 !important;
+            border: 1px solid #e6dac8 !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            max-width: 400px !important; /* Tamanho controlado e perfeito na tela */
+            width: 100% !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
+        }
+
+        .video-card video {
+            width: 100% !important;
+            height: 250px !important; /* Altura controlada equivalente às fotos */
+            object-fit: cover !important; /* Corta proporcionalmente como no celular */
+            display: block !important;
+        }
+
+        /* ==========================================
+           CÓPIA EXATA DA GALERIA DE GASTRONOMIA
+           ========================================== */
+        .image-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 20px !important;
+        }
+
+        .image-card {
+            background: #fcf8f2 !important;
+            border: 1px solid #e6dac8 !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .image-card img {
+            width: 100% !important;
+            height: 220px !important; /* Altura exata da página de gastronomia */
+            object-fit: cover !important; /* Preenche o card sem distorcer e sem amassar */
+            border-radius: 0px !important; /* Remove as bolinhas definitivamente */
+            display: block !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.03) !important;
+        }
+
+        .image-caption {
+            padding: 12px 15px !important;
+            font-size: 0.9rem !important;
+            color: #706356 !important;
+            text-align: center !important;
+            background-color: #f4ece1 !important;
+            border-top: 1px solid #e6dac8 !important;
+            width: 100% !important;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Link de retorno para a Home principal -->
     <a href="index.html" class="back-btn">← Back to Home</a>
 
     <header class="header-section">
         <h1>Aquatic Paradises</h1>
+        <p>A journey through Malta's crystal lagoons and hidden sea wonders.</p>
     </header>
 
     <main class="main-container">
-        <article class="info-card">
-            <h2>The Blue Lagoon & Comino</h2>
-            <div class="location-tag">📍 Comino Island, Malta</div>
-            <p class="card-text">The Blue Lagoon is a crystal-clear paradise pool with a white sandy seafloor. Surrounded by scenic cliffs, it offers spectacular tropical views right in the middle of the Mediterranean.</p>
+
+        <!-- Seção 1: Blue Lagoon -->
+        <section class="showcase-block">
+            <h2>The Blue Lagoon</h2>
+            <div class="location-badge">📍 Comino Island, Malta</div>
             
-            <!-- SEÇÃO DO VÍDEO: Adicionado com os parâmetros corretos para rodar no ar -->
-            <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                    <source src="kemmuna.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <p class="block-text">
+                The Blue Lagoon is a paradise pool featuring a white sandy seafloor and exceptionally clear, glowing cyan waters. Nestled between the peaceful island of Comino and the islet of Cominotto, it offers some of the most spectacular tropical views in the heart of the Mediterranean Sea.
+            </p>
+
+            <!-- Vídeo do Celular Totalmente Controlado -->
+            <div class="video-block-wrapper">
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="kemmuna.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="image-caption">Live look at the crystal currents of Comino</div>
+                </div>
             </div>
 
-            <!-- Imagens em formato menor e 100% inteiras abaixo do vídeo -->
-            <div class="image-container-grid">
-                <div class="img-box"><img src="bluelagoon2.png" alt="Blue Lagoon View"></div>
-                <div class="img-box"><img src="bluelagoon4.jpg" alt="Blue Lagoon Cliffs"></div>
+            <!-- Galeria de Imagens idêntica ao Formato de Gastronomia (RETANGULAR PERFEITO) -->
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="bluelagoon2.png" alt="Blue Lagoon View">
+                    <div class="image-caption">The vibrant landscape facing the turquoise sea</div>
+                </div>
+                <div class="image-card">
+                    <img src="bluelagoon4.jpg" alt="Blue Lagoon Cliffs">
+                    <div class="item-caption image-caption">Scenic coastal cliffs bordering the paradise lagoon</div>
+                </div>
             </div>
-        </article>
+        </section>
+
     </main>
 
 </body>
 </html>
-

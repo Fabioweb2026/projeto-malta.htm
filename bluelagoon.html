@@ -21,7 +21,7 @@
             line-height: 1.6;
         }
 
-        /* Botão Voltar */
+        /* Botão Voltar Fixo */
         .back-btn {
             position: fixed;
             top: 20px;
@@ -43,6 +43,7 @@
             transform: translateX(-3px);
         }
 
+        /* Cabeçalho */
         .header-section {
             text-align: center;
             padding: 100px 20px 40px 20px;
@@ -64,6 +65,7 @@
             font-style: italic;
         }
 
+        /* Container do Conteúdo */
         .main-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -77,64 +79,68 @@
             overflow: hidden;
             margin-bottom: 50px;
             box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05);
+            display: flex;
+            flex-direction: column;
         }
 
         /* ==========================================
-           CORREÇÃO: TAMANHO MENOR E SEM CORTES ARTIFAIS
+           ESTILO DAS BOLINHAS (CIRCULARES E MENORES)
            ========================================== */
         
-        /* Centraliza a imagem e reduz o tamanho da caixa de visualização */
+        /* Centraliza perfeitamente a bolinha principal */
         .lagoon-image-wrapper, .solo-image-wrapper {
             width: 100% !important;
-            height: 220px !important; /* Reduzido de 320px para um visual menor e sutil */
-            background-color: #f4ece1; /* Mantém o fundo bege integrado */
+            height: auto !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            padding: 15px 0; /* Respiro sutil para as fotos não colarem no topo */
-            border-radius: 0px !important;
+            padding-top: 35px !important; /* Espaço para a foto respirar no topo */
+            background-color: transparent !important;
         }
 
-        /* Faz a foto inteira (100%) aparecer sem cortar o céu ou as rochas */
+        /* Moldura de Círculo Perfeito para Imagens Principais */
         .lagoon-image-wrapper img, .solo-image-wrapper img {
-            width: auto !important; /* Permite que a largura se ajuste de forma real */
-            height: 100% !important; /* Limita a altura máxima no tamanho menor */
-            max-height: 100% !important;
-            border-radius: 6px !important; /* Bordas levemente arredondadas e limpas */
-            object-fit: contain !important; /* MÁGICA: Mostra toda a paisagem original sem cortes */
+            width: 120px !important;   /* Tamanho menor, sutil e harmônico */
+            height: 120px !important;  /* Mesma proporção para não amassar a foto */
+            border-radius: 50% !important; /* FORÇA O FORMATO REDONDO */
+            object-fit: cover !important;  /* Corta centralizado dentro do círculo */
+            border: 3px solid #8c7864 !important; /* Borda fina cor de Malta */
+            box-shadow: 0 4px 12px rgba(140, 120, 100, 0.15) !important;
             display: block !important;
-            transform: none !important;
         }
 
         .card-padding {
-            padding: 30px;
+            padding: 20px 30px 30px 30px;
         }
 
         .info-card h2 {
             font-size: 1.6rem;
             color: #735e49;
             margin-bottom: 5px;
+            text-align: center; /* Títulos centralizados combinam com as bolinhas */
         }
 
         .location-tag {
-            display: inline-block;
+            display: block;
+            width: max-content;
+            margin: 5px auto 15px auto; /* Centraliza o selo do local */
             background-color: #dfcfbe;
             color: #5c4f43;
             padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: bold;
-            margin-bottom: 15px;
         }
 
         .card-text {
             font-size: 0.95rem;
             color: #4a3f35;
             text-align: left;
+            line-height: 1.6;
         }
 
         /* ==========================================
-           GALERIA INFERIOR MENOR AJUSTADA
+           GALERIA INFERIOR (MINI BOLINHAS)
            ========================================== */
         .image-gallery {
             display: grid;
@@ -150,13 +156,16 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            align-items: center; /* Centraliza os itens na vertical */
+            padding-top: 20px;
         }
 
-        /* Ajuste de harmonia para as fotos menores inferiores */
+        /* Transforma as fotos menores em bolinhas correspondentes */
         .gallery-item img {
-            width: 100% !important;
-            height: 150px !important; /* Tamanho compacto e elegante */
-            border-radius: 0px !important;
+            width: 85px !important;
+            height: 85px !important;
+            border-radius: 50% !important; /* Mini bolinha */
+            border: 2px solid #8c7864 !important;
             object-fit: cover !important;
             display: block !important;
         }
@@ -166,15 +175,14 @@
             font-size: 0.85rem;
             color: #706356;
             text-align: center;
-            background-color: #f4ece1;
-            border-top: 1px solid #e6dac8;
+            background-color: transparent;
             word-wrap: break-word;
         }
     </style>
 </head>
 <body>
 
-    <!-- Link para retornar à Home principal -->
+    <!-- Botão de retorno apontando para a sua nova index.html -->
     <a href="index.html" class="back-btn">← Back to Home</a>
 
     <header class="header-section">
@@ -228,3 +236,4 @@
 
 </body>
 </html>
+

@@ -3,25 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Lagoon - Comino Island</title>
+    <title>Tourism - Explore Malta</title>
     <style>
         /* === ESTILOS BLINDADOS ANTI-CONFLITO === */
-        * { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
-        body { background-color: #fcf8f2 !important; color: #4a3f35 !important; font-family: 'Segoe UI', Georgia, serif !important; line-height: 1.6 !important; }
-        .back-btn { position: fixed !important; top: 20px !important; left: 20px !important; background: #f4ece1 !important; border: 1px solid #e6dac8 !important; color: #4a3f35 !important; text-decoration: none !important; padding: 10px 18px !important; border-radius: 20px !important; font-size: 0.9rem !important; z-index: 9999 !important; }
-        .header-section { text-align: center !important; padding: 100px 20px 30px 20px !important; }
-        .header-section h1 { color: #8c7864 !important; font-size: 2.5rem !important; font-weight: 400 !important; }
-        .main-container { max-width: 900px !important; margin: 0 auto !important; padding: 20px !important; }
+        * { 
+            margin: 0 !important; 
+            padding: 0 !important; 
+            box-sizing: border-box !important; 
+        }
         
-        .info-card { background-color: #f4ece1 !important; border: 1px solid #e6dac8 !important; border-radius: 12px !important; padding: 30px !important; margin-bottom: 30px !important; box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05) !important; text-align: center !important; }
-        .info-card h2 { color: #735e49 !important; font-size: 1.6rem !important; margin-bottom: 5px !important; }
-        .location-tag { background-color: #dfcfbe !important; color: #5c4f43 !important; padding: 4px 12px !important; border-radius: 4px !important; font-size: 0.8rem !important; font-weight: bold !important; display: inline-block !important; margin-bottom: 15px !important; }
-        .card-text { font-size: 0.95rem !important; color: #4a3f35 !important; text-align: left !important; margin-bottom: 25px !important; }
+        body { 
+            background-color: #fcf8f2 !important; 
+            color: #4a3f35 !important; 
+            font-family: 'Segoe UI', Georgia, serif !important; 
+            line-height: 1.6 !important; 
+        }
         
-        /* FORMATO MENOR, COMPACTO E SEM CORTES */
-        .image-container-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 20px !important; margin-top: 20px !important; }
-        .img-box { background: #fcf8f2 !important; border: 1px solid #e6dac8 !important; border-radius: 8px !important; overflow: hidden !important; height: 180px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
-        .img-box img { max-width: 100% !important; max-height: 100% !important; width: auto !important; height: auto !important; object-fit: contain !important; border-radius: 0px !important; display: block !important; }
+        /* Botão Voltar */
+        .back-btn { 
+            position: fixed !important; 
+            top: 20px !important; 
+            left: 20px !important; 
+            background-color: #f4ece1 !important; 
+            border: 1px solid #e6dac8 !important; 
+            color: #4a3f35 !important; 
+            text-decoration: none !important; 
+            padding: 10px 18px !important; 
+            border-radius: 20px !important; 
+            font-size: 0.9rem !important; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; 
+            z-index: 9999 !important; 
+        }
+        
+        .back-btn:hover { 
+            background-color: #ebe0cf !important; 
+            transform: translateX(-3px) !important; 
+        }
+        
+        /* Cabeçalho */
+        .header-section { 
+            text-align: center !important; 
+            padding: 100px 20px 40px 20px !important; 
+            max-width: 800px !important; 
+            margin: 0 auto !important; 
+        }
+        
+        .header-section h1 { 
+            font-size: 2.5rem !important; 
+            color: #8c7864 !important; 
+            font-weight: 400 !important; 
+            letter-spacing: 1px !important; 
+            margin-bottom: 15px !important; 
+        }
+        
+        .header-section p { 
+            font-size: 1.05rem !important; 
+            color: #706356 !important; 
+            font-style: italic !important; 
+        }
+        
+        /* Container Principal */
+        .main-container { 
+            max-width: 900px !important; 
+            margin: 0 auto !important; 
+            padding: 20px !important; 
+        }
+        
+        /* Estrutura dos Cards */
+        .destination-card { 
+            background-color: #f4ece1 !important; 
+            border: 1px solid #e6dac8 !important; 
+            border-radius: 12px !important; 
+            overflow: hidden !important; 
+            margin-bottom: 40px !important; 
+            display: flex !important; 
+            flex-direction: column !important; 
+            box-shadow: 0 4px 15px rgba(140, 120, 100, 0.05) !important;
+        }
+        
+        /* === CORREÇÃO CRÍTICA: SEM CORTES NAS IMAGENS === */
+        .destination-image-wrapper { 
+            width: 100% !important; 
+            height: 220px !important; /* Altura compacta e proporcional */
+            background-color: #f4ece1 !important; /* Fundo bege uniforme */
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 10px 0 !important;
+        }
+        
+        .destination-image-wrapper img { 
+            width: auto !important; 
+            height: 100% !important; 
+            max-width: 100% !important;
+            border-radius: 4px !important; 
+            object-fit: contain !important; /* SOLUÇÃO: Exibe a imagem INTEIRA sem cortes */
+            display: block !important; 
+        }
+        
+        /* Textos Internos */
+        .destination-info { 
+            padding: 25px 30px 30px 30px !important; 
+        }
+        
+        .destination-info h2 { 
+            font-size: 1.6rem !important; 
+            color: #735e49 !important; 
+            margin-bottom: 5px !important; 
+        }
+        
+        .location-tag { 
+            display: inline-block !important; 
+            background-color: #dfcfbe !important; 
+            color: #5c4f43 !important; 
+            padding: 4px 12px !important; 
+            border-radius: 4px !important; 
+            font-size: 0.8rem !important; 
+            font-weight: bold !important; 
+            margin-bottom: 15px !important; 
+        }
+        
+        .destination-text { 
+            font-size: 0.95rem !important; 
+            color: #4a3f35 !important; 
+            text-align: left !important; 
+        }
     </style>
 </head>
 <body>
@@ -29,21 +135,68 @@
     <a href="index.html" class="back-btn">← Back to Home</a>
 
     <header class="header-section">
-        <h1>Aquatic Paradises</h1>
+        <h1>Wonders of Malta</h1>
+        <p>Discover breathtaking fortresses, golden sandy bays, and vibrant coastal paths.</p>
     </header>
 
     <main class="main-container">
-        <article class="info-card">
-            <h2>The Blue Lagoon & Comino</h2>
-            <div class="location-tag">📍 Comino Island, Malta</div>
-            <p class="card-text">The Blue Lagoon is a crystal-clear paradise pool with a white sandy seafloor. Surrounded by scenic cliffs, it offers spectacular tropical views right in the middle of the Mediterranean.</p>
-            
-            <!-- Duas imagens harmônicas em tamanho menor e sem cortes nas laterais -->
-            <div class="image-container-grid">
-                <div class="img-box"><img src="bluelagoon2.png" alt="Blue Lagoon View"></div>
-                <div class="img-box"><img src="bluelagoon4.jpg" alt="Blue Lagoon Cliffs"></div>
+
+        <!-- Card 1: Valletta -->
+        <section class="destination-card">
+            <div class="destination-image-wrapper">
+                <img src="valeta.png" alt="Valletta Cityscape">
             </div>
-        </article>
+            <div class="destination-info">
+                <h2>Valletta: The Fortress Capital</h2>
+                <div class="location-tag">📍 Valletta</div>
+                <p class="destination-text">
+                    Founded in 1566, Valletta is a UNESCO World Heritage site filled with rich Baroque architecture. This historic fortress capital features spectacular limestone bastions, scenic harbor overlooks, and majestic cathedrals.
+                </p>
+            </div>
+        </section>
+
+        <!-- Card 2: Golden Bay Dia -->
+        <section class="destination-card">
+            <div class="destination-image-wrapper">
+                <img src="goldenbay.jpg" alt="Golden Bay Beach Daytime">
+            </div>
+            <div class="destination-info">
+                <h2>Golden Bay: The Premier Sandy Beach</h2>
+                <div class="location-tag">📍 Mellieha, Northwest Coast</div>
+                <p class="destination-text">
+                    Golden Bay is one of Malta's most famous and beloved sandy beaches. Set against a backdrop of beautiful natural valleys, its soft amber sand and clear Mediterranean waters make it an ideal spot for swimming and daytime watersports.
+                </p>
+            </div>
+        </section>
+
+        <!-- Card 3: Card Exclusivo do Pôr do Sol -->
+        <section class="destination-card">
+            <div class="destination-image-wrapper">
+                <img src="goldenbayporsol.png" alt="Golden Bay Sunset">
+            </div>
+            <div class="destination-info">
+                <h2>Golden Bay Sunset Experience</h2>
+                <div class="location-tag">📍 Mellieha, Northwest Coast</div>
+                <p class="destination-text">
+                    Witness the breathtaking, magical sunset over the Mediterranean horizon. The amber sands reflect the deep orange hues, creating an unforgettable coastal moment and showcasing a perfect view of Malta's natural beauty.
+                </p>
+            </div>
+        </section>
+
+        <!-- Card 4: St. Julian's -->
+        <section class="destination-card">
+            <div class="destination-image-wrapper">
+                <img src="st-julians1.png" alt="St. Julian's Promenade">
+            </div>
+            <div class="destination-info">
+                <h2>St. Julian's Promenade</h2>
+                <div class="location-tag">📍 Eastern Coastline</div>
+                <p class="destination-text">
+                    St. Julian's offers a lively coastal path that connects historic bays with modern seaside culture. The promenade is perfect for evening walks, lined with vibrant open-air cafes, restaurants, and traditional Maltese fishing boats.
+                </p>
+            </div>
+        </section>
+
     </main>
 
 </body>

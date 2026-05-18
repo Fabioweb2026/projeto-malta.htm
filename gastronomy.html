@@ -19,6 +19,7 @@
             background-color: #fcf8f2; /* Creme suave */
             color: #4a3f35; /* Marrom escuro */
             line-height: 1.6;
+            transition: opacity 0.3s ease; /* Transição de página unificada */
         }
 
         /* Botão Voltar Fixo e Discreto */
@@ -34,7 +35,7 @@
             border-radius: 20px;
             font-size: 0.9rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            z-index: 10;
+            z-index: 9999;
             transition: all 0.2s ease;
         }
 
@@ -129,6 +130,7 @@
             height: 220px;
             object-fit: cover;
             transition: transform 0.3s ease;
+            display: block;
         }
 
         .image-card:hover img {
@@ -143,12 +145,39 @@
             background-color: #f4ece1;
             border-top: 1px solid #e6dac8;
         }
+
+        /* Ajuste do Modo de Alto Contraste para Herança da Home */
+        body.high-contrast {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        body.high-contrast .showcase-block {
+            background-color: #1a1a1a;
+            border-color: #ffffff;
+        }
+        body.high-contrast .back-btn {
+            background-color: #1a1a1a;
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+        body.high-contrast h1,
+        body.high-contrast h2,
+        body.high-contrast strong {
+            color: #ffff00;
+        }
+        body.high-contrast .block-text,
+        body.high-contrast .image-caption,
+        body.high-contrast p {
+            color: #ffffff;
+        }
+        body.high-contrast .image-caption {
+            background-color: #1a1a1a;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Link de retorno para a Home principal -->
-    <a href="index.html" class="back-btn">← Back to Home</a>
+    <a href="index.html" class="back-btn" id="back-home-link">← Back to Home</a>
 
     <header class="header-section">
         <h1>Flavors & Stones</h1>
@@ -188,7 +217,7 @@
                 Malta's landscape is famous for its glowing globigerina limestone buildings. Right around the corner from the lively cafes, historic monuments stand tall against the blue skies, representing centuries of cultural heritage carved in golden stone.
             </p>
 
-            <!-- Foto de Arquitetura com o nome sugerido da Igreja -->
+            <!-- Foto de Arquitetura -->
             <div class="image-grid" style="grid-template-columns: 1fr;">
                 <div class="image-card" style="max-width: 500px; margin: 0 auto; width: 100%;">
                     <img src="malta06.jpg" alt="Our Lady of Mount Carmel Church">
@@ -199,5 +228,27 @@
 
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backLink = document.getElementById('back-home-link');
+
+            // Sincroniza o estado de alto contraste se ativo na Home
+            if (localStorage.getItem('highContrast') === 'enabled') {
+                document.body.classList.add('high-contrast');
+            }
+
+            // Animação ao sair da página pelo botão voltar
+            if(backLink) {
+                backLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+                    document.body.style.opacity = '0';
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 300);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -222,10 +222,6 @@ main-header, .header-section {
     display: block; 
     transition: transform 0.5s ease; 
 }
-/* Classe exclusiva para forçar o corte cirúrgico no terceiro cartão */
-.corte-bluelagoon4 {
-    object-position: center 65% !important; /* Move o mar turquesa e os banhistas para o centro exato */
-}
 
         /* Efeito de zoom sutil ao passar o mouse */
         .info-card:hover .solo-image-wrapper img {
